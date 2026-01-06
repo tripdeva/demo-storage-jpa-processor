@@ -1,0 +1,14 @@
+plugins {
+    id 'java-library'
+}
+
+dependencies {
+    implementation project(':demo-core')
+
+    // 코드 생성 라이브러리
+    implementation 'com.squareup:javapoet:1.13.0'
+
+    // Annotation Processor API
+    implementation 'com.google.auto.service:auto-service:1.1.1'
+    annotationProcessor 'com.google.auto.service:auto-service:1.1.1'
+}
