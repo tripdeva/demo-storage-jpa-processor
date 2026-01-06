@@ -1,9 +1,9 @@
-package kr.co.demo.processor.generator;
+package kr.co.demo.storage.jpa.processor.generator;
 
 import com.squareup.javapoet.*;
-import kr.co.demo.processor.util.NamingUtils;
-import kr.co.demo.storage.annotation.StorageRelation;
-import kr.co.demo.storage.annotation.StorageTransient;
+import kr.co.demo.storage.jpa.processor.util.NamingUtils;
+import kr.co.demo.core.storage.annotation.StorageRelation;
+import kr.co.demo.core.storage.annotation.StorageTransient;
 
 import javax.annotation.processing.Filer;
 import javax.lang.model.element.*;

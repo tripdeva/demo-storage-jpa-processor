@@ -1,10 +1,10 @@
-package kr.co.demo.processor;
+package kr.co.demo.storage.jpa.processor;
 
 import com.google.auto.service.AutoService;
-import kr.co.demo.processor.generator.EntityGenerator;
-import kr.co.demo.processor.generator.MapperGenerator;
-import kr.co.demo.processor.generator.RepositoryGenerator;
-import kr.co.demo.storage.annotation.StorageTable;
+import kr.co.demo.storage.jpa.processor.generator.EntityGenerator;
+import kr.co.demo.storage.jpa.processor.generator.MapperGenerator;
+import kr.co.demo.storage.jpa.processor.generator.RepositoryGenerator;
+import kr.co.demo.core.storage.annotation.StorageTable;
 
 import javax.annotation.processing.*;
 import javax.lang.model.SourceVersion;

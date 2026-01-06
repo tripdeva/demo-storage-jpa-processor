@@ -1,4 +1,4 @@
-package kr.co.demo.processor.util;
+package kr.co.demo.storage.jpa.processor.util;
 
 /**
  * 네이밍 변환 유틸리티
