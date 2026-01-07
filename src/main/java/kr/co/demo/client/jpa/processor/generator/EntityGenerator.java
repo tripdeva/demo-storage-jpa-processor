@@ -1,8 +1,8 @@
-package kr.co.demo.storage.jpa.processor.generator;
+package kr.co.demo.client.jpa.processor.generator;
 
 import com.squareup.javapoet.*;
 import kr.co.demo.core.storage.annotation.*;
-import kr.co.demo.storage.jpa.processor.util.NamingUtils;
+import kr.co.demo.client.jpa.processor.util.NamingUtils;
 import kr.co.demo.core.storage.enums.EnumType;
 import kr.co.demo.core.storage.enums.RelationType;
 

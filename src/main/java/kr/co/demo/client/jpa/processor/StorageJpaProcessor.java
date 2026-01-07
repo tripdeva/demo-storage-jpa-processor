@@ -1,9 +1,9 @@
-package kr.co.demo.storage.jpa.processor;
+package kr.co.demo.client.jpa.processor;
 
 import com.google.auto.service.AutoService;
-import kr.co.demo.storage.jpa.processor.generator.EntityGenerator;
-import kr.co.demo.storage.jpa.processor.generator.MapperGenerator;
-import kr.co.demo.storage.jpa.processor.generator.RepositoryGenerator;
+import kr.co.demo.client.jpa.processor.generator.EntityGenerator;
+import kr.co.demo.client.jpa.processor.generator.MapperGenerator;
+import kr.co.demo.client.jpa.processor.generator.RepositoryGenerator;
 import kr.co.demo.core.storage.annotation.StorageTable;
 
 import javax.annotation.processing.*;
@@ -62,7 +62,7 @@ import java.util.Set;
  * @see RepositoryGenerator
  */
 @AutoService(Processor.class)
-@SupportedAnnotationTypes("kr.co.demo.storage.annotation.StorageTable")
+@SupportedAnnotationTypes("kr.co.demo.core.storage.annotation.StorageTable")
 @SupportedSourceVersion(SourceVersion.RELEASE_17)
 public class StorageJpaProcessor extends AbstractProcessor {
 
