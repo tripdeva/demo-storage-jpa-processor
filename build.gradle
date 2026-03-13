@@ -1,5 +1,18 @@
 plugins {
     id 'java-library'
+    id 'maven-publish'
+}
+
+// .env 파일 탐색 (상위 디렉토리까지)
+def envProps = new Properties()
+def dir = projectDir
+while (dir != null) {
+    def envFile = new File(dir, '.env')
+    if (envFile.exists()) {
+        envFile.withInputStream { envProps.load(it) }
+        break
+    }
+    dir = dir.parentFile
 }
 
 group = 'kr.co.demo'
@@ -13,10 +26,11 @@ java {
 
 repositories {
     mavenCentral()
+    maven { url 'https://jitpack.io' }
 }
 
 dependencies {
-    implementation 'kr.co.demo:demo-core:1.0-SNAPSHOT'
+    implementation 'com.github.tripdeva:demo-core:v1.0.0'
 
     // 코드 생성 라이브러리
     implementation 'com.squareup:javapoet:1.13.0'
@@ -24,4 +38,25 @@ dependencies {
     // Annotation Processor API
     implementation 'com.google.auto.service:auto-service:1.1.1'
     annotationProcessor 'com.google.auto.service:auto-service:1.1.1'
+}
+
+publishing {
+    repositories {
+        maven {
+            name = "GitHubPackages"
+            url = uri("https://maven.pkg.github.com/tripdeva/${rootProject.name}")
+            credentials {
+                username = System.getenv("GITHUB_USER") ?: envProps.getProperty("GITHUB_USER") ?: project.findProperty("gpr.user")
+                password = System.getenv("GITHUB_TOKEN") ?: envProps.getProperty("GITHUB_TOKEN") ?: project.findProperty("gpr.key")
+            }
+        }
+    }
+    publications {
+        gpr(MavenPublication) {
+            from components.java
+            groupId = 'kr.co.demo'
+            artifactId = rootProject.name
+            version = project.version
+        }
+    }
 }
