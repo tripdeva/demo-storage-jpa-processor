@@ -2,8 +2,21 @@ plugins {
     id 'java-library'
 }
 
+group = 'kr.co.demo'
+version = '1.0-SNAPSHOT'
+
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(17)
+    }
+}
+
+repositories {
+    mavenCentral()
+}
+
 dependencies {
-    implementation project(':demo-core')
+    implementation 'kr.co.demo:demo-core:1.0-SNAPSHOT'
 
     // 코드 생성 라이브러리
     implementation 'com.squareup:javapoet:1.13.0'
